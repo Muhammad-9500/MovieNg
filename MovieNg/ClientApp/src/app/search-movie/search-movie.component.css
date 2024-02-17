@@ -1,0 +1,33 @@
+
+.input-width{
+    width:300px;
+}
+
+.styled-image {
+  width: 300px; /* Set the desired width */
+  height: auto; /* Maintain aspect ratio */
+  border: 2px solid #ddd; /* Add a border */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow */
+  transition: transform 0.3s ease; /* Add a smooth transition on hover */
+}
+
+  /* CSS styles for hover effect */
+  .styled-image:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+
+.movie-container {
+  display: flex; /* Use flexbox for layout */
+}
+
+.styled-image {
+  width: 200px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.extended-info {
+  padding: 0 20px; /* Add padding to the extended info */
+}
+

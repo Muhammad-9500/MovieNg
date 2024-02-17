@@ -1,0 +1,45 @@
+
+<div class="container mt-4">
+    <h2>Search Movies</h2>
+
+    <form (ngSubmit)="onSearchMovie()" class="mt-3">
+        <div class="mb-3">
+            <label for="titleInput" class="form-label">Enter movie title</label>
+            <input type="text" [(ngModel)]="title" name="title" id="titleInput" class="form-control input-width" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div id="searchResults" class="mt-3">
+        <div *ngIf="errorMessage; else movieListBlock">
+            <p>{{ errorMessage }}</p>
+        </div>
+        <ng-template #movieListBlock>
+            <div *ngFor="let movie of movies">
+                <h3>{{ movie.title }}</h3>
+                <div class="movie-container">
+                    <img class="styled-image"
+                         [src]="movie.poster !== 'N/A' ? movie.poster : './assets/Generic.jpeg'"
+                         (click)="toggleExtendedInfo(movie)"
+                         alt="Nicely Formatted Image"
+                         [class.selected]="isMovieSelected(movie)">
+
+                    <div class="extended-info" *ngIf="isMovieSelected(movie)">
+                        <p>Genre: {{ movie.genre }}</p>
+                        <p>Language: {{ movie.language }}</p>
+                        <p>Country: {{ movie.country }}</p>
+                        <p>Year: {{ movie.year }}</p>
+                        <p>Released Date: {{ movie.released }}</p>
+                        <p>Runtime: {{ movie.runtime }}</p>
+                        <p>IMDB Rating: {{ movie.imdbRating }}</p>
+                        <p>Director: {{ movie.director }}</p>
+                        <p>Type: {{ movie.type }}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+
+
+
+</div>
